@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate') %>
+
+<link rel="stylesheet" type="text/css" href="/css/movies.css">
+<div class="container">
+    <header class="jumbotron text-center">
+        <div class="container">
+            <h1>Movies</h1>
+            <p>Select a movie to view more information or search for a specific title or genre.<p>
+                    <% if (currentUser && currentUser.isContributing){ %>
+                    <a class="btn btn-outline-primary" href="/movies/new">Add a New Movie</a>
+                    <% } %>
+                    <div>
+                        <p>
+                            <form action="/movies" method="GET" class="form-inline justify-content-center">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="search" placeholder="Toy Story...">
+                                    <input class="btn btn-outline-success" type="submit" value="Search">
+                                </div>
+                            </form>
+                        </p>
+                    </div>
+        </div>
+    </header>
+    <div class="container">
+        <br>
+        <div class="row justify-content-center" style="display:flex; flex-wrap:wrap;">
+            <% for( movie of movies ) {%>
+            <div class="card movie_card">
+                <% if(movie.poster === '') { %>
+                <img src="https://www.medicinalgenomics.com/wp-content/uploads/2019/01/image-coming-soon-ecc.png"
+                    class="card-image top" alt="Poster Coming Soon">
+                <% } else { %>
+                <img src="<%= movie.poster %>" class="card-image top" alt="<%= movie.title %> Poster">
+                <% } %>
+                <div class="card-body">
+                    <h5 class="card-title"><%= movie.title %></h5>
+                    <a href="/movies/<%= movie._id %>" class="btn btn-outline-primary btn-block">View More</a>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>

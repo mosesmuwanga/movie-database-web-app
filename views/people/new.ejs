@@ -1,0 +1,55 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row mt-3">
+    <div class="col-md-4 offset-md-4">
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4 mt-1">Adding a New Person</h1>
+                <form action="/people" method="POST" class="valid-form" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="name">Name</label>
+                        <input class="form-control" type="text" id="name" name="person[name]"
+                            placeholder="Chadwick Boseman" required>
+                        <div class="valid-feedback">Looks Good!</div>
+                        <div class="invalid-feedback">What's is their name?</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="person[role]">Role</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="person[role]" id="actor" value="Actor">
+                            <label class="form-check-label" for="actor">
+                                Actor
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="person[role]" id="director"
+                                value="Director">
+                            <label class="form-check-label" for="director">
+                                Director
+                            </label>
+                        </div>
+                        <div class="form-check disabled">
+                            <input class="form-check-input" type="radio" name="person[role]" id="writer" value="Writer">
+                            <label class="form-check-label" for="writer">
+                                Writer
+                            </label>
+                        </div>
+                        <div class="valid-feedback">Looks Good!</div>
+                        <div class="invalid-feedback">Please select a role</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="photo">Photo URL</label>
+                        <input class="form-control" type="text" id="photo" name="person[photo]"
+                            placeholder="https://example.com/jpeg/">
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-outline-success btn-block">Add</button>
+                    </div>
+                    <a href="/people">Back to people </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

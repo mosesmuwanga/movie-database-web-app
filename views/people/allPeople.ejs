@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate') %>
+
+<link rel="stylesheet" type="text/css" href="/css/movies.css">
+<div class="container">
+    <header class="jumbotron text-center">
+        <div class="container">
+            <h1>Cast and Crew</h1>
+            <p>Select a person to view more information or search for a specific person or role.<p>
+                    <% if (currentUser && currentUser.isContributing){ %>
+                    <a class="btn btn-outline-primary" href="/people/new">Add a New Person</a>
+                    <% } %>
+                    <div>
+                        <p>
+                            <form action="/people" method="GET" class="form-inline justify-content-center">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="search"
+                                        placeholder="Chadwick Boseman...">
+                                    <input class="btn btn-outline-success" type="submit" value="Search">
+                                </div>
+                            </form>
+                        </p>
+                    </div>
+        </div>
+    </header>
+    <div class="container">
+        <br>
+        <div class="row justify-content-center" style="display:flex; flex-wrap:wrap;">
+            <% for( person of people ) {%>
+            <div class="card movie_card">
+                <% if(person.photo === '') { %>
+                <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=640"
+                    class="card-image top" alt="Default Profile Picture">
+                <% } else { %>
+                <img src="<%= person.photo %>" class="card-image top" alt="<%= person.name %> Photo">
+                <% } %>
+                <div class="card-body">
+                    <h5 class="card-title"><%= person.name %> (<%= person.role %>)</h5>
+                    <a href="people/<%= person._id %> " class="btn btn-outline-primary btn-block">View More</a>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>

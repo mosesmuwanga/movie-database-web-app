@@ -1,0 +1,41 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">MVDB</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/movies">Movies</a>
+                <a class="nav-link" href="/people">People</a>
+                <a class="nav-link" href="/users">Users</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <% if (!currentUser) { %>
+                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/signup">Sign Up</a>
+                <% } else { %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New <span
+                            class="badge badge-secondary"> <%= notifications.length %></span></a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/notifications">View All Notifications</a>
+                        <% for (let notification of notifications) {%>
+                        <a class="dropdown-item" href="#"><%= notification.username %> added to the MVDB</a>
+                        <% } %>
+                        <div class="dropdown-divider"></div>
+
+                    </div>
+                </li>
+
+
+
+                <a class="nav-link" href="/users/<%= currentUser._id %> ">My Profile</a>
+                <a class="nav-link" href="/logout">Log Out</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</nav>

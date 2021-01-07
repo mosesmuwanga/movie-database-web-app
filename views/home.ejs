@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Database</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body class="d-flex text-white bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-left mb-0">MVDB</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-right">
+                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    <a class="nav-link" href="/movies">Movies</a>
+                    <a class="nav-link" href="/people">People</a>
+                    <a class="nav-link" href="/users">Users</a>
+                    <% if(!currentUser) { %>
+                    <a class="nav-link" href="/login">Login</a>
+                    <a class="nav-link" href="/signup">Sign Up</a>
+                    <% } else { %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Notifications <span class="badge badge-secondary"><%= notifications.length %></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <% notifications.forEach(function(notification) { %>
+                            <a class="dropdown-item" href="/notifications/<%= notification.id %>">
+                                <%= notification.username %> created a new movie
+                            </a>
+                            <% }); %>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/notifications">Past Notifications</a>
+                        </div>
+                    </li>
+                    <a class="nav-link" href="/users/<%= currentUser._id %>">Profile</a>
+                    <a class="nav-link" href="/logout">Logout</a>
+                    <% } %>
+                </nav>
+            </div>
+        </header>
+        <main class="px-3">
+            <div class="mt-5">
+                <h1>Movie Database</h1>
+                <p class="lead">Welcome to the Movie Database!<br>Jump in and browse the database containing hundreds of
+                    movies and cast and crew members.<br><a href="/login">Login</a> or <a href="/signup">sign up</a> now
+                    to contribute content and leave reviews on films you've watched.
+                </p>
+                <a href="/movies" class="btn btn-lg btn-outline-secondary">Browse Movies</a>
+                <a href="/people" class="btn btn-lg btn-outline-secondary">Browse People</a>
+                <a href="/users" class="btn btn-lg btn-outline-secondary">Browse Users</a>
+            </div>
+            <div>
+                <img src="pjctr.png">
+            </div>
+
+        </main>
+
+
+        <footer class="mt-auto text-white-50">
+            <p>&copy Movie Database 2020</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

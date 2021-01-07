@@ -1,0 +1,48 @@
+.cover-container{
+    max-width: 90vw;
+}
+
+body{
+    height: 100vh;
+    text-shadow: 0 0.1rem 0.2rem black;
+}
+
+img{
+    margin-left: 900px;
+    height: 400px;
+    filter: grayscale(0);
+    background: none;
+}
+
+img:hover{
+    filter: grayscale(1);
+    transition: 3s;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-link {
+    padding: 0.25rem 0;
+    color: lightgray;
+    margin-left: 1rem;
+    border-bottom: 0.25rem solid transparent;
+    transition: 1s;
+}
+
+.nav-link:hover{
+    color: white;
+    border-bottom-color: lightgray;
+    transition: 2s;
+}
+
+.nav-link.active {
+    color: white;
+    border-bottom-color: lightgray;
+}
+
+.btn-outline-secondary{
+    color: white;
+    text-shadow: none;
+}

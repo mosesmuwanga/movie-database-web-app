@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.body {
+    background: #97AABD;
+    overflow-x: hidden;
+    padding-top: 50px;
+    margin: 0 50px;
+}
+
+.header-container {
+    background: #fff;
+    width: 100%;
+    display: flex;
+    height: 200px;
+    position: relative;
+    box-shadow: 0px 3px 4px rgba(0,0,0,.2);
+}
+
+.header-text {
+    float: left;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+.header-text h3 {
+    font-variant: small-caps;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.profile-pic {
+    float: left;
+    width: 350px;
+    height: 250px;
+}
+
+.profile-pic img {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    border: 2px solid #97AABD;
+    box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+    position: absolute;
+    left: 40px;
+    top: 20px;
+    z-index: 5;
+    background: #fff
+}
+
+.poster {
+    float: left;
+    width: 350px;
+    height: 250px;
+}
+
+.poster img {
+    border: 2px solid #97AABD;
+    box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+    position: absolute;
+    left: 40px;
+    top: 20px;
+    z-index: 5;
+    background: #fff
+}
+
+.main-body-container {
+    width: 100%;
+    display: flex;
+    padding-right: 15px;
+}
+
+.left-info {
+    width: 315px;
+    background: white;
+    box-shadow: 0px 3px 5px rgba(0,0,0,.2);
+    padding: 100px 30px 20px;
+    margin-left: 10px;
+    z-index: 99;
+}
+
+.left-info p {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.info-text {
+    padding-top: 15px;
+}
+
+.movie-info-text {
+    padding-top: 100px;
+}
+
+.fa {
+    padding: 1px;
+    font-size: 5px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #97AABD;
+    border-radius: 50%;
+  }
+
+.avgRating {
+    padding-top: 15px;
+}
+
+.stars {
+    padding-top: 10px;
+}
+
+.tab-container {
+    width: 100%;
+    height: fit-content;
+}
+
+.tab-container .tab-btn-container {
+    height: 40px;
+}
+
+.tab-container .tab-btn-container .tab-btn {
+    height: 100%;
+    float: left;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 17px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #fff;
+    transition: 300ms;
+}
+
+#user-tab-container .tab-btn {
+    width: 20%;
+}
+
+#people-tab-container .tab-btn {
+    width: 33.33%;
+}
+
+#movie-tab-container .tab-btn {
+    width: 33.33%;
+}
+
+#home-tab-container .tab-btn {
+    width: 33.33%;
+}
+
+.tab-container .tab-btn-container .tab-btn:hover {
+    box-shadow: 0px -5px 0px #495f72 inset;
+}
+
+.tab-container .tab-btn-container .tab-btn:focus {
+    outline: 0;
+}
+
+.tab-container .tab-panel {
+    height: 85%;
+    background-color: #ddd;
+    color: black;
+    text-align: center;
+    padding-top: 105px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: none;
+}
+
+.loginFormBox{
+    width: 375px;
+    height: 475px;
+    position: relative;
+    margin: 6% auto;
+    background: #fff;
+    padding: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 5px 5px #495f72;
+}
+
+.buttonBox{
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 5px 5px #495f72;
+    border-radius: 35px;
+}
+
+.toggle{
+    padding: 10px 30px;
+    background: transparent;
+    outline: none;
+    border: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+#logSignBtn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #495f72, #97AABD);
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.userInput{
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.inputField{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid #314455;
+    outline: none;
+    background: transparent;
+}
+
+.submitBtn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: #495f72;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    color: white;
+    position: relative;
+    top: 25px;
+}
+
+.submitBtn:hover{
+    opacity: 0.7;
+}
+
+.checkBox{
+    margin: 30px 10px 30px 0;
+}
+
+
+
+#loginForm{
+    left: 50px;
+}
+
+#signupForm{
+    left: 450px;
+}
+

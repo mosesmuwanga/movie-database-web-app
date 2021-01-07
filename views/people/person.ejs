@@ -1,0 +1,107 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="row">
+    <div class="col-md-4 mb-3 mt-3">
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h3 class="card-title text-center mb-4 mt-1"><%= person.name %></h3>
+                <div class="mb-3">
+                    <% if(person.photo === '') { %>
+                    <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=640"
+                        class="rounded mx-auto d-block img-thumbnail" alt="Default Profile Picture">
+                    <% } else { %>
+                    <img src="<%= person.photo %>" class="rounded mx-auto d-block img-thumbnail"
+                        alt="<%= person.name %> Photo">
+                    <% } %>
+                    <ul class="list-group list-group-flush">
+                        <hr>
+                        <li class="list-group-item"><%= person.role %></li>
+                    </ul>
+                    <% if (currentUser){ %>
+                    <div class="card-body">
+                        <a href="/follow/<%= person._id %>"><button class="btn btn-outline-primary">+
+                                FOLLOW</button></a>
+                    </div>
+                    <div class="card-body">
+                        <a href="/unfollow/<%= person._id %>"><button
+                                class="btn btn-outline-danger">UNFOLLOW</button></a>
+                    </div>
+                    <% } %>
+                    <form action="#" method="POST" class="valid-form" novalidate></form>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card shadow mb-3 mt-3" style="min-height: 95%">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="filmography-tab" data-toggle="tab" href="#filmography" role="tab"
+                        aria-controls="filmography" aria-selected="true">Filmography</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="colab-tab" data-toggle="tab" href="#colab" role="tab" aria-controls="colab"
+                        aria-selected="false">Frequent Collaborations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="followers-tab" data-toggle="tab" href="#followers" role="tab"
+                        aria-controls="followers" aria-selected="false">Followers</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="filmography" role="tabpanel"
+                    aria-labelledby="filmography-tab">
+                    <div class="mb-3">
+                        <div class="m-2">
+                            <% for( mov of movies ) {%>
+                            <div class="list-group-item d-flex align-items-center">
+                                <% if(mov.poster === '') { %>
+                                <img src="https://www.medicinalgenomics.com/wp-content/uploads/2019/01/image-coming-soon-ecc.png"
+                                    class="rounded mx-auto d-block img-thumbnail" alt="Poster Coming Soon"
+                                    style="max-width: 50px">
+                                <% } else { %>
+                                <img src="<%= mov.poster %>" class="rounded mx-auto d-block img-thumbnail"
+                                    alt="<%= mov.title %> Poster" style="max-width: 75px">
+                                <% } %>
+                                <div class="flex-fill pl-3 pr-3">
+                                    <div><a href="/movies/<%= mov._id %>"
+                                            class="text-dark font-weight-600"><%= mov.title %></a>
+                                    </div>
+                                    <div class="text-muted fs-13px">
+                                        <%= mov.genre %>
+                                    </div>
+                                    <p class="card-text"><%= mov.plot %></p>
+                                </div>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="colab" role="tabpanel" aria-labelledby="colab-tab">
+                    <div class="m-2">
+                        <% for( collab of people ) {%>
+                        <div class="list-group-item d-flex align-items-center">
+                            <% if(collab.photo === '') { %>
+                            <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png?w=640"
+                                style="max-width: 50px" class="rounded-sm ml-n2" alt="Default Profile Picture">
+                            <% } else { %>
+                            <img src="<%= collab.photo %>" alt="<%= collab.name %>'s' Photo" style="max-width: 50px"
+                                class="rounded-sm ml-n2">
+                            <% } %>
+                            <div class="flex-fill pl-3 pr-3">
+                                <div><a href="/people/<%= collab._id %>"
+                                        class="text-dark font-weight-600"><%= collab.name %></a></div>
+                                <div class="text-muted fs-13px">
+                                    <%= collab.role %>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab"></div>
+            </div>
+        </div>
+    </div>

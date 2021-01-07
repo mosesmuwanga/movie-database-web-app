@@ -1,0 +1,24 @@
+
+.movie_card{
+  padding: 0 !important;
+  width: 15rem;
+  margin:25px; 
+  border-radius: 10px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
+}
+.movie_card img{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 20rem;
+}
+.movie_info{
+  color: gray;
+}
+
+.movie_info i{
+  font-size: 20px;
+}
+.card-title{
+  width: 80%;
+  height: 4rem;
+}
